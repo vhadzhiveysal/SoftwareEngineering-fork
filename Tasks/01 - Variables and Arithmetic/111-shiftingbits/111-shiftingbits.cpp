@@ -29,8 +29,17 @@ int main()
 	//TASKS:
 
 	//Shift right by 1 and display
-
+	number >>= 1;
+	displayAndCompare(number);
 
 	//Shift left by 1 and display
+	number <<= 1;
+	displayAndCompare(number);
 
+	/*
+	what i noticed:
+	upon right shifting, the binary number's rightmost '1' bit is gone, so its left with that
+	then upon left shifting, that '1' bit doesn't come back, that rightmost bit is now 0
+	so that bit is lost, it isn't stored
+	*/
 }
