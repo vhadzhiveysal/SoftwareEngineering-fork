@@ -21,6 +21,8 @@ int main()
 
     //Write solution here
 
+    size_t loc = input.find("42");
+    cout << "\"42\" is found at location " << loc << endl;
 
 
     // Challenge 2 - word count
