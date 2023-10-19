@@ -12,6 +12,7 @@ struct Point {
 void displayPoint(Point p);
 float calculateLength(Point p);
 Point flipPoint(Point p);
+Point addPoint(Point p1, Point p2);
 
 
 int main()
@@ -28,6 +29,10 @@ int main()
     cout << endl;
     displayPoint(p2);
     cout << endl;
+
+    //addPoint function
+    Point pp = addPoint(p1, p2);
+    displayPoint(pp);
 
     //Copy and display
     Point p3 = p1;                  //member-by-member copy
@@ -74,5 +79,15 @@ Point flipPoint(Point p)
     result.x = p.y;
     result.y = p.x;
     result.length = p.length;
+    return result;
+}
+
+Point addPoint(Point p1, Point p2)
+{
+    Point result;
+    result.x = (p1.x + p2.x);
+    result.y = (p1.y + p2.y);
+    result.length = calculateLength(result);
+
     return result;
 }
