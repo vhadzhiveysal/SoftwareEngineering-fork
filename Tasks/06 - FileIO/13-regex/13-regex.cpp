@@ -72,6 +72,29 @@ int main()
         cout << "Oops - could not find it" << endl;
     }
 
+    
+    //looking for "subject area: " and "comp"
+    if (regex_search(dataString, match, regex("\\s*(Subject\\s*Area):\\s*(\\w*)\\s*"))) {
+        cout << "\nFull Match:" << match[0] << endl;
+        if (match.size() >= 3) {
+            tag = match[1];
+            strCode = match[2];
+            cout << "Pair found: (" << tag << ", " << strCode << ")" << endl;
+
+            try {
+                cout << tag << strCode << endl;
+            }
+            catch (exception e)
+            {
+                cerr << "Could not find \"Subject Area\"" << endl;
+                return -1;
+            }
+        }
+    }
+    else {
+        cout << "Could not find Subject Area" << endl;
+    }
+
     // Done
     cout << "All is well!" << endl;
     return 0;

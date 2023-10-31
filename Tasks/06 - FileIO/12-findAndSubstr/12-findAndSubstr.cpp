@@ -33,10 +33,20 @@ int main()
         return -1;
     }
 
+    // find substring "Area:"
+    int pos2 = dataString.find("Area:");
+    if (pos2 == -1) {
+        cerr << "Identifier Area: is missing from file" << endl;
+        return -1;
+    }
+
     //Now extract the string from this point forwards
     cout << "Found \"ID:\" at character position " << pos << endl;
+    cout << "Found \"Area:\" at character position " << pos2 << endl;
     string previous  = dataString.substr(0, pos);   //Up to the location pos-1
     string following = dataString.substr(pos);      //From pos to the end
+
+    string following2 = dataString.substr(pos2);
 
     //Now read the next two words
     istringstream iss(following);   //From ID: onwards
@@ -64,6 +74,18 @@ int main()
         return -1;
     }
 
+    istringstream iss2(following2);
+    string strTag2;
+    string strGroup;
+
+    iss2 >> strTag2 >> strGroup;
+
+    if (iss2.fail()) {
+        cerr << "Could not read subject area" << endl;
+        return -1;
+    }
+    cout << "Found " << strTag2 << endl;
+    cout << "Followed by " << strGroup << endl;
     // Done
     cout << "All is well!" << endl;
     return 0;
