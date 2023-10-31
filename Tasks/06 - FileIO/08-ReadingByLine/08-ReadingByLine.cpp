@@ -26,25 +26,29 @@ int main()
     string nextLine;
     string allLines;
 
-    //Read a complete line into the nextLine string
-    getline(inputStream, nextLine);
-    
-    //Now add on the the allLines string (if a line was read)
-    if (inputStream.fail() == false) {
+    do {
 
-        //Display the line that was just read
-        cout << "Read in the line: " << nextLine;
+        //Read a complete line into the nextLine string
+        getline(inputStream, nextLine);
 
-        // LOOK! This is how you "append" a string
-        allLines = allLines + nextLine + "\n";      //Add the newline character on the end
+        //Now add on the the allLines string (if a line was read)
+        if (inputStream.fail() == false) {
 
-    } else {
-        cout << "Failed to read a line." << endl;
-    }
+            //Display the line that was just read
+            cout << "Read in the line: " << nextLine << endl;
 
-    if (inputStream.eof()) {
-        cout << "The last read found an EOF marker" << endl;
-    }
+            // LOOK! This is how you "append" a string
+            allLines = allLines + nextLine + "\n";      //Add the newline character on the end
+
+        }
+        else {
+            cout << "Failed to read a line." << endl;
+        }
+        if (inputStream.eof()) {
+            cout << "The last read found an EOF marker" << endl;
+        }
+    } while (!inputStream.eof());
+
 
     // Use a loop to read all remaining lines
     // Hint - `inputStream.eof()` to check if the end of file character was read

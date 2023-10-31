@@ -28,6 +28,7 @@ int main()
 
     // Read the first word
     int moduleNumber;
+    string moduleName;
     string nextWord;
 
     while (iss.eof() == false) 
@@ -41,14 +42,23 @@ int main()
         // Display the word
         cout << nextWord << endl;
 
+        if (nextWord == "COMP") {
+            moduleName = nextWord;
+        }
+
         //Look for the string that comes before the module code
         if (nextWord == "ID:") {
             cout << "Found \"ID:\". The code should be next...." << endl;
             //TODO:
             // Read the next word
             // If successful, try to convert to an integer then break from the while loop
+            iss >> nextWord;
+            break;
+
         }
     }
+    moduleNumber = stoi(nextWord);
+    cout << moduleName << moduleNumber + 1 << endl;
 
     // Done
     return 0;
