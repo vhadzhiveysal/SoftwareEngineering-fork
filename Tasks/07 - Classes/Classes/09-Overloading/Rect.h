@@ -70,6 +70,20 @@ namespace COMP1000 {
             return area;
         }
 
+        void updateArea(int w, int h) {
+            //re-initialise
+            width = w;
+            height = h;
+
+            //recalculate
+            area = w * h;
+
+            //Log IF the file has been opened
+            if (outputStream.is_open()) {
+                outputStream << "width: " << width << ", height: " << height << ", area: " << area << endl;
+            }
+        }
+
         void setHeight(double h)
         {
             if (height != h) {
