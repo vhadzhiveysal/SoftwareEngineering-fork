@@ -2,8 +2,25 @@
 //
 
 #include <iostream>
+#include "YearRecord.h"
+#include <vector>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	YearRecord Year1("Paul Paulington", "COMP1000");
+
+	Year1.addModule("COMP1001");
+	Year1.addStudent("James Jameson");
+	Year1.addStudent("Thomas Thompson");
+
+	Year1.display();
+
+	string studentName = "James Jameson";
+	Year1.checkStudent(studentName);
+	
+	studentName = "Jack Jackson";
+	Year1.checkStudent(studentName);
+
 }
