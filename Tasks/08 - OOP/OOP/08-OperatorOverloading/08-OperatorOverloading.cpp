@@ -73,6 +73,8 @@ int main()
     case1 += charges;
 
     cout << case1.generateStatement();
+
+    case1.
 }
 
 
