@@ -18,7 +18,8 @@ public:
     ~MainWindow();
 
 private slots:
-
+    void onButtonClicked(bool);
+    void onButtonClicked2(bool);
 private:
     Ui::MainWindow *ui;
 };

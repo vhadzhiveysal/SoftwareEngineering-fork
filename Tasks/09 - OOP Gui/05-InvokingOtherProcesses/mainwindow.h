@@ -20,6 +20,8 @@ public:
 private slots:
     void pushButtonClicked();
     void copyResult();
+    void returnPressed();
+    void textChanged();
 
 private:
     Ui::MainWindow *ui;

@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Line Edit Events
     //Connect you signals and slots here
+    connect(ui->lineEdit, &QLineEdit::returnPressed, this, &MainWindow::returnPressed);
+    connect(ui->lineEdit, &QLineEdit::textChanged, this, &MainWindow::textChanged);
+
 }
 
 MainWindow::~MainWindow()
@@ -60,4 +63,13 @@ void MainWindow::copyResult()
     QApplication::clipboard()->setText(this->filePath);
 }
 
+void MainWindow::returnPressed()
+{
+    ui->pushButton->click();
+}
+
+void MainWindow::textChanged()
+{
+    ui->actionCopy_Result->setEnabled(false);
+}
 
